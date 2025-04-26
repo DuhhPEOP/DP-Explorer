@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>DP Finanças</title>
+    <link rel="stylesheet" href="finanças.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="finanças.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="header-left">
+                <a href="explorer.html" class="home-button">
+                    <span class="home-icon">🏠</span>
+                    <span class="home-text">Home</span>
+                </a>
+            </div>
+            <h1>Bem vindo a DP Finanças</h1>
+            <button id="themeToggle" class="theme-toggle">
+                <span class="light-icon">☀️</span>
+                <span class="dark-icon">🌙</span>
+            </button>
+        </div>
+    </header>
+    <main>
+        <section class="finance-control">
+            <h2>Controle Financeiro</h2>
+            
+            <div class="balance-cards">
+                <div class="card income">
+                    <h3>Saldo Total</h3>
+                    <p id="totalBalance">R$ 0,00</p>
+                </div>
+                <div class="card income">
+                    <h3>Receitas</h3>
+                    <p id="totalIncome">R$ 0,00</p>
+                </div>
+                <div class="card expense">
+                    <h3>Despesas</h3>
+                    <p id="totalExpenses">R$ 0,00</p>
+                </div>
+            </div>
+
+            <div class="transaction-form">
+                <h3>Nova Transação</h3>
+                <form id="transactionForm">
+                    <div class="form-group">
+                        <label for="description">Descrição:</label>
+                        <input type="text" id="description" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="amount">Valor (R$):</label>
+                        <input type="number" id="amount" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="type">Tipo:</label>
+                        <select id="type" required>
+                            <option value="income">Receita</option>
+                            <option value="expense">Despesa</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Categoria:</label>
+                        <select id="category" required>
+                            <option value="salary">Salário</option>
+                            <option value="food">Alimentação</option>
+                            <option value="transport">Transporte</option>
+                            <option value="housing">Moradia</option>
+                            <option value="other">Outros</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn">Adicionar Transação</button>
+                </form>
+            </div>
+
+            <div class="transactions-list">
+                <h3>Últimas Transações</h3>
+                <table id="transactionsTable">
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Descrição</th>
+                            <th>Categoria</th>
+                            <th>Valor</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="transactionsList">
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="chart-container">
+                <h3>Análise Mensal</h3>
+                <div class="chart-wrapper">
+                    <canvas id="monthlyChart"></canvas>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
